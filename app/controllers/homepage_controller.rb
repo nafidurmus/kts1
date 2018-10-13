@@ -12,7 +12,7 @@ class HomepageController < ApplicationController
 		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 		request = Net::HTTP::Get.new(url)
-		request["apikey"] = 'kendi apinizi yazınız'
+		request["apikey"] = 'Kendi api keyinizi yazın'
 		request["accept"] = 'application/json'
 		
 
