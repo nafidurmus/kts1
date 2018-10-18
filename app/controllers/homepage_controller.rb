@@ -12,7 +12,7 @@ class HomepageController < ApplicationController
 		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 		request = Net::HTTP::Get.new(url)
-		request["apikey"] = 'kendi api keyiniz'
+		request["apikey"] = '61ddc89db26c4c39bbb533d428715aac'
 		request["accept"] = 'application/json'
 		
 
