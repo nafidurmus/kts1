@@ -1,0 +1,17 @@
+<% @hurriyet.each do |a| %>
+	
+	<center>
+		 <div class="card" style="width: 60rem;">
+		  <div class="card-body">
+		    <h5 class="card-title"><%= a["Title"]%></h5>
+		    <p class="card-text"><%= a["Description"]%></p>
+		    <a href="<%= a["Url"]%>" class="btn btn-primary">Habere git</a>
+		  </div>
+		</div>
+		<br>
+	</center>
+    
+   
+  <% end %>
+
+

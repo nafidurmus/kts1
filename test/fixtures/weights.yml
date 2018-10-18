@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-10-17
+  gender: MyString
+  lenght: 9.99
+  weight: 9.99
+  ideal_weight: 9.99
+
+two:
+  date: 2018-10-17
+  gender: MyString
+  lenght: 9.99
+  weight: 9.99
+  ideal_weight: 9.99
