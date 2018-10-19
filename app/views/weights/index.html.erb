@@ -21,22 +21,24 @@
   <tbody>
     <% @weights.each do |weight| %>
       <tr>
-        <td><%= weight.user.email%></td>
-        <% t = weight.date %>
-        <td><%= t.strftime("%d %B %Y (%A)") %></td>
-        <td><%= weight.gender %></td>
-        <td><%= weight.lenght %></td>
-        <td><%= weight.weight %></td>
-        <% if weight.gender == "man"  %>
-          <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
-          <td><%= weight.weight - a  %></td>
-        <% else weight.gender == "woman" %>
-          <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
-          <td><%= weight.weight - a  %></td>
+        <% if current_user.id == weight.user.id %>
+          <td><%= weight.user.email%></td>
+          <% t = weight.date %>
+          <td><%= t.strftime("%d %B %Y (%A)") %></td>
+          <td><%= weight.gender %></td>
+          <td><%= weight.lenght %></td>
+          <td><%= weight.weight %></td>
+          <% if weight.gender == "man"  %>
+            <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
+            <td><%= weight.weight - a  %></td>
+          <% else weight.gender == "woman" %>
+            <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
+            <td><%= weight.weight - a  %></td>
+          <% end %>
+          <td><%= link_to 'Show', weight %></td>
+          <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+          <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-        <td><%= link_to 'Show', weight %></td>
-        <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-        <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

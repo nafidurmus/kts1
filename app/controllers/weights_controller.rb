@@ -5,8 +5,12 @@ class WeightsController < ApplicationController
   # GET /weights
   # GET /weights.json
   def index
-    @weights = Weight.all
+    @users = User.all
     
+      @weights = Weight.all
+    
+
+
       
   end
 
