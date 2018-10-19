@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   get 'homepage/index'
   get 'homepage/what'
+  get 'homepage/body_type'
   root 'homepage#index'
 end

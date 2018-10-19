@@ -3,7 +3,7 @@
 </center>
 
 
-<table class="table table-striped">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">username email</th>
@@ -13,6 +13,7 @@
       <th scope="col">Weight</th>
       <th scope="col">Ideal weight</th>
       <th scope="col">Variation</th>
+      <th scope="col">Body Type</th>
       
       <th colspan="4"></th>
     </tr>
@@ -34,7 +35,23 @@
           <% else weight.gender == "woman" %>
             <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
             <td><%= weight.weight - a  %></td>
+
           <% end %>
+          <% a=weight.lenght/100%>
+          <% x=(weight.weight)/(a*a) %>
+          <% if(x<=18.5) %>
+            <td>Weak</td>
+          <% elsif(x>18.5 && x<=24.9) %>
+            <td>Normal</td>
+          <% elsif(x>24.9 && x<=29.9) %>
+            <td>Overweight</td>
+          <% elsif(x>29.9 && x<=34.9) %>
+            <td>Obese (Class I)</td>
+          <% elsif(x>34.9 && x<=39.9) %>
+            <td>Obese (Class II)</td>
+          <% else %>
+            <td>Obese (Class III)</td>
+          <% end -%>
           <td><%= link_to 'Show', weight %></td>
           <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
           <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -47,5 +64,6 @@
 <br>
 
 <%= link_to 'New Weight', new_weight_path %>
+
 
 

@@ -22,5 +22,8 @@ class HomepageController < ApplicationController
 
   	def what
   	end
+
+  	def body_type
+  	end
 end
 
