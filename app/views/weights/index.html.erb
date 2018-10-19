@@ -21,7 +21,7 @@
   <tbody>
     <% @weights.each do |weight| %>
       <tr>
-        <td><%= current_user.email %></td>
+        <td><%= weight.user.email%></td>
         <% t = weight.date %>
         <td><%= t.strftime("%d %B %Y (%A)") %></td>
         <td><%= weight.gender %></td>

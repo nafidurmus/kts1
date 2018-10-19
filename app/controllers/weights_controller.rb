@@ -6,6 +6,8 @@ class WeightsController < ApplicationController
   # GET /weights.json
   def index
     @weights = Weight.all
+    
+      
   end
 
   # GET /weights/1
@@ -15,7 +17,7 @@ class WeightsController < ApplicationController
 
   # GET /weights/new
   def new
-    @weight = Weight.new
+    @weight = current_user.weights.build
   end
 
   # GET /weights/1/edit
@@ -25,7 +27,7 @@ class WeightsController < ApplicationController
   # POST /weights
   # POST /weights.json
   def create
-    @weight = Weight.new(weight_params)
+    @weight = current_user.weights.build(weight_params)
 
     respond_to do |format|
       if @weight.save
