@@ -1,22 +1,35 @@
+<center>
+  <div class="col-md-10 col-md-offset-1">
+    <%= simple_form_for(@weight) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= simple_form_for(@weight) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs">
+        <%= f.input :date %>
+      </div>
+      <div class="dropdown ">
+          <%= f.label :gender %>
+          <%= f.select(:gender, Weight::GENDER)  %>   
+        </div>
+        
+      </div>
+      <br>
+      <br>
 
-  <div class="form-inputs">
-    <%= f.input :date %>
-  </div>
-    <div class="dropdown">
-      <%= f.label :gender %>
-      <%= f.select(:gender, Weight::GENDER)  %>
-    </div>
-    
-  <div class="form-inputs">
-    <%= f.input :lenght %>
-    <%= f.input :weight %>
-  </div>
+        
+      <div class="form-inputs" style="width: 69rem;>
+        <%= f.input :lenght %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-inputs" style="width: 69rem;>
+        <%= f.input :weight %>
+      </div>
+
+      <br>   
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</center>
+

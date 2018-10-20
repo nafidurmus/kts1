@@ -7,7 +7,7 @@ class WeightsController < ApplicationController
   def index
     @users = User.all
     
-      @weights = Weight.all
+      @weights = Weight.all.order('created_at desc')
     
 
 
@@ -49,7 +49,7 @@ class WeightsController < ApplicationController
   def update
     respond_to do |format|
       if @weight.update(weight_params)
-        format.html { redirect_to @weight, notice: 'Weight was successfully updated.' }
+        format.html { redirect_to weights_path, notice: 'Weight was successfully updated.' }
         format.json { render :show, status: :ok, location: @weight }
       else
         format.html { render :edit }

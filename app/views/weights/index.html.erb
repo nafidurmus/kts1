@@ -1,69 +1,76 @@
 <center>
-  <h1>Weights</h1>
-</center>
+  <div class="col-md-10 col-md-offset-1">
+  <center>
+    <h1>Weights</h1>
+  </center>
 
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">username email</th>
-      <th scope="col">Date</th>
-      <th scope="col">Gender</th>
-      <th scope="col">Lenght</th>
-      <th scope="col">Weight</th>
-      <th scope="col">Ideal weight</th>
-      <th scope="col">Variation</th>
-      <th scope="col">Body Type</th>
-      
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">username email</th>
+          <th scope="col">Date</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Lenght</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Ideal weight</th>
+          <th scope="col">Variation</th>
+          <th scope="col">Body Type</th>
+         
+          <th colspan="4"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @weights.each do |weight| %>
-      <tr>
-        <% if current_user.id == weight.user.id %>
-          <td><%= weight.user.email%></td>
-          <% t = weight.date %>
-          <td><%= t.strftime("%d %B %Y (%A)") %></td>
-          <td><%= weight.gender %></td>
-          <td><%= weight.lenght %></td>
-          <td><%= weight.weight %></td>
-          <% if weight.gender == "man"  %>
-            <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
-            <td><%= weight.weight - a  %></td>
-          <% else weight.gender == "woman" %>
-            <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
-            <td><%= weight.weight - a  %></td>
+      <tbody>
+        <% @weights.each do |weight| %>
+          <tr>
+            <% if current_user.id == weight.user.id %>
+              <td><%= weight.user.email%></td>
+              <% t = weight.date %>
+              <td><%= t.strftime("%d %B %Y (%A)") %></td>
+              <td><%= weight.gender %></td>
+              <td><%= weight.lenght %></td>
+              <td><%= weight.weight %></td>
+              <% if weight.gender == "man"  %>
+                <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
+                <td><%= weight.weight - a  %></td>
+              <% else weight.gender == "woman" %>
+                <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
+                <td><%= weight.weight - a  %></td>
 
-          <% end %>
-          <% a=weight.lenght/100%>
-          <% x=(weight.weight)/(a*a) %>
-          <% if(x<=18.5) %>
-            <td>Weak</td>
-          <% elsif(x>18.5 && x<=24.9) %>
-            <td>Normal</td>
-          <% elsif(x>24.9 && x<=29.9) %>
-            <td>Overweight</td>
-          <% elsif(x>29.9 && x<=34.9) %>
-            <td>Obese (Class I)</td>
-          <% elsif(x>34.9 && x<=39.9) %>
-            <td>Obese (Class II)</td>
-          <% else %>
-            <td>Obese (Class III)</td>
-          <% end -%>
-          <td><%= link_to 'Show', weight %></td>
-          <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-          <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+              <% a=weight.lenght/100%>
+              <% x=(weight.weight)/(a*a) %>
+              <% if(x<=18.5) %>
+                <td>Weak</td>
+              <% elsif(x>18.5 && x<=24.9) %>
+                <td>Normal</td>
+              <% elsif(x>24.9 && x<=29.9) %>
+                <td>Overweight</td>
+              <% elsif(x>29.9 && x<=34.9) %>
+                <td>Obese (Class I)</td>
+              <% elsif(x>34.9 && x<=39.9) %>
+                <td>Obese (Class II)</td>
+              <% else %>
+                <td>Obese (Class III)</td>
+              <% end -%>
+              <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+              <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
-
-<%= link_to 'New Weight', new_weight_path %>
-
+  <center>
+    <%= link_to 'New Weight', new_weight_path, class:"btn bg-light" %>
+    </br>
+    </br>
+    </br>
+     </br>
+    </br>
+  </center>
+  </div>
+</center>
 
 
