@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2018_10_19_101514) do
   create_table "weights", force: :cascade do |t|
     t.date "date"
     t.string "gender"
-    t.decimal "lenght"
-    t.decimal "weight"
+    t.float "lenght"
+    t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

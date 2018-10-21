@@ -10,6 +10,7 @@
         <tr>
           <th scope="col">username email</th>
           <th scope="col">Date</th>
+          <th scope="col">Hour</th>
           <th scope="col">Gender</th>
           <th scope="col">Lenght</th>
           <th scope="col">Weight</th>
@@ -27,16 +28,17 @@
             <% if current_user.id == weight.user.id %>
               <td><%= weight.user.email%></td>
               <% t = weight.date %>
-              <td><%= t.strftime("%d %B %Y (%A)") %></td>
+              <td><%= t.strftime("%d %B %Y (%A)")%> </td> 
+              <td><%= weight.created_at.strftime("%I:%M%p")%> </td>
               <td><%= weight.gender %></td>
               <td><%= weight.lenght %></td>
               <td><%= weight.weight %></td>
               <% if weight.gender == "man"  %>
                 <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
-                <td><%= weight.weight - a  %></td>
+                <td><%= (weight.weight - a).round(1)  %></td>
               <% else weight.gender == "woman" %>
                 <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
-                <td><%= weight.weight - a  %></td>
+                <td><%= (weight.weight - a).round(1)  %></td>
 
               <% end %>
               <% a=weight.lenght/100%>
