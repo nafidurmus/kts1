@@ -25,5 +25,13 @@ class HomepageController < ApplicationController
 
   	def body_type
   	end
+
+  	def weekly
+  		@weights = Weight.all.order('created_at desc')
+  	end
+
+  	def monthly
+  		@weights = Weight.all.order('created_at desc')
+  	end
 end
 

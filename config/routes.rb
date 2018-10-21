@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'homepage/index'
   get 'homepage/what'
   get 'homepage/body_type'
+  get 'homepage/weekly'
+  get 'homepage/monthly'
   root 'homepage#index'
 end

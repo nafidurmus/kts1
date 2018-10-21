@@ -34,10 +34,10 @@
               <td><%= weight.lenght %></td>
               <td><%= weight.weight %></td>
               <% if weight.gender == "man"  %>
-                <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
+                <td><%= a = (50 + (2.3 ) * ((weight.lenght - 152.2) / 2.54)).round(1) %></td>
                 <td><%= (weight.weight - a).round(1)  %></td>
               <% else weight.gender == "woman" %>
-                <td><%= a = (45 + (2.3 ) * ((weight.lenght - 152.4) / 2.54)).round(1) %></td>
+                <td><%= a = (45.5 + (2.3 ) * ((weight.lenght - 152.2) / 2.54)).round(1) %></td>
                 <td><%= (weight.weight - a).round(1)  %></td>
 
               <% end %>
@@ -64,7 +64,13 @@
       </tbody>
     </table>
 
-  <center>
+
+    <div class="text-right">
+      <%= link_to 'Weekly', homepage_weekly_path, class:"btn bg-info" %>
+      <%= link_to 'Monthly', homepage_monthly_path, class:"btn bg-info" %>
+    </div>
+
+  <center >
     <%= link_to 'New Weight', new_weight_path, class:"btn bg-light" %>
     </br>
     </br>
