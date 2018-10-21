@@ -29,7 +29,7 @@
               <td><%= weight.user.email%></td>
               <% t = weight.date %>
               <td><%= t.strftime("%d %B %Y (%A)")%> </td> 
-              <td><%= weight.created_at.strftime("%I:%M%p")%> </td>
+              <td><%= weight.created_at.strftime("%R")%> </td>
               <td><%= weight.gender %></td>
               <td><%= weight.lenght %></td>
               <td><%= weight.weight %></td>
