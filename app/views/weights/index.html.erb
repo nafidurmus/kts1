@@ -25,7 +25,7 @@
       <tbody>
         <% @weights.each do |weight| %>
           <tr>
-            <% if current_user.id == weight.user.id %>
+            
               <td><%= weight.user.email%></td>
               <% t = weight.date %>
               <td><%= t.strftime("%d %B %Y (%A)")%> </td> 
@@ -58,7 +58,7 @@
               <% end -%>
               <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
               <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
+            
           </tr>
         <% end %>
       </tbody>
