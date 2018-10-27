@@ -1,17 +1,12 @@
 class WeightsController < ApplicationController
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :find_user, only: [:index]
 
   # GET /weights
   # GET /weights.json
   def index
-    @users = User.all
-    
-      @weights = Weight.all.order('created_at desc')
-    
-
-
-      
+    @weights = Weight.all.order('created_at desc')
   end
 
   # GET /weights/1
@@ -77,5 +72,9 @@ class WeightsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_params
       params.require(:weight).permit(:date, :gender, :lenght, :weight, :ideal_weight)
+    end
+
+    def find_user
+      @users = User.all
     end
 end
