@@ -26,7 +26,7 @@
         <% @weights.each do |weight| %>
           <tr>
             
-              <td><%= weight.user.email%></td>
+              <td><%= weight.user.id%></td>
               <% t = weight.date %>
               <td><%= t.strftime("%d %B %Y (%A)")%> </td> 
               <td><%= weight.created_at.strftime("%R")%> </td>
