@@ -8,7 +8,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">username email</th>
+          
           <th scope="col">Date</th>
           <th scope="col">Hour</th>
           <th scope="col">Gender</th>
@@ -26,7 +26,7 @@
         <% @weights.each do |weight| %>
           <tr>
             
-              <td><%= weight.user.email%></td>
+              
               <% t = weight.date %>
               <td><%= t.strftime("%d %B %Y (%A)")%> </td> 
               <td><%= weight.created_at.strftime("%R")%> </td>
