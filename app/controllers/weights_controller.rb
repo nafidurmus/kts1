@@ -75,6 +75,6 @@ class WeightsController < ApplicationController
     end
 
     def find_user
-      @users = User.all
+      params.require(:user).permit(:email)
     end
 end
