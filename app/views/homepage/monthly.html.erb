@@ -32,7 +32,7 @@
         <% @weights.each do |weight| %>
           <tr>
             <% if weight.date >= 1.month.ago %>
-              <% if current_user.id == weight.user.id %>
+              <% if current_user.id == weight.user_id %>
                 <td><%= weight.user.email%></td>
                 <% t = weight.date %>
                 <td><%= t.strftime("%d %B %Y (%A)")%> </td> 
